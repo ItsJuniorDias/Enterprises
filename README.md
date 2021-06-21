@@ -2,8 +2,8 @@
 🛰Application built with React Native in order to show data from a companies api
 
 
+![sign_in-horz](https://user-images.githubusercontent.com/50254416/122694599-42649900-d214-11eb-8cf2-e51d4132350c.jpg)
 
-![home](sign_in-horz.jpg)
 
 ### Tools
 - **Axios** were used for consumption by Api
