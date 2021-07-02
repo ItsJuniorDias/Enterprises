@@ -2,7 +2,7 @@
 🛰Application built with React Native in order to show data from a companies api
 
 
-![sign_in-horz](https://user-images.githubusercontent.com/50254416/122694599-42649900-d214-11eb-8cf2-e51d4132350c.jpg)
+![show_item](https://user-images.githubusercontent.com/50254416/124333960-09a9b580-db6c-11eb-80ef-62b8be5dd393.jpg)
 
 
 ### Tools
