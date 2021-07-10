@@ -1,4 +1,6 @@
 import styled from 'styled-components/native';
+import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder';
+import LinearGradient from 'react-native-linear-gradient';
 
 export const Container = styled.View`
   flex: 1;
@@ -98,3 +100,23 @@ export const DescriptionCard = styled.Text`
 
   color: #ffffff;
 `;
+
+export const ContentEmpty = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 120px;
+  flex-direction: row;
+`;
+
+export const EmptyFilterData = styled.Text`
+  font-size: 18px;
+  font-family: 'Poppins-Regular';
+  color: #2d4379;
+  line-height: 24px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  margin-right: 8px;
+`;
+
+export const ViewShimmer = createShimmerPlaceholder(LinearGradient);

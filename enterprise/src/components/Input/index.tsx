@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {
   useState,
   useEffect,
@@ -59,6 +60,7 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (
       path: 'value',
       setValue(ref: any, value) {
         inputValueRef.current.value = value;
+
         inputElementRef.current.setNativeProps({ text: value });
       },
       clearValue() {

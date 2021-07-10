@@ -16,6 +16,7 @@ import {
 } from '../enterprise/actions';
 
 import { ActionTypes, IAuthResponse } from './types';
+import { requestHeadersShow } from '../show/actions';
 
 type authLoginRequest = ReturnType<typeof loginToAuthRequest>;
 
@@ -40,6 +41,7 @@ function* loginAuthUser({ payload }: authLoginRequest) {
     };
 
     yield put(getEnterpriseRequest(dataHeader));
+    yield put(requestHeadersShow(dataHeader));
     // yield put(push('Home'));
   } catch (e) {
     yield put(loginToAuthFailure());

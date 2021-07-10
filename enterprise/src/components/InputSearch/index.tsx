@@ -1,15 +1,23 @@
-import React, { useRef } from 'react';
-import { Image, TextInput, View } from 'react-native';
+import React, { useState, useRef, useEffect, useImperativeHandle } from 'react';
+import { Image, TextInput, View, TextInputProps } from 'react-native';
 
+import { useField } from '@unform/core';
 import { Touchable, ContentInput, Input } from './styles';
 
 import search from '../../assets/search.png';
 
-interface ISearch {
+interface ISearch extends TextInputProps {
   title: string;
+  name: string;
+  callBackParent(value: any): void;
 }
 
-const InputSearch: React.FC<ISearch> = ({ title }) => {
+const InputSearch: React.FC<ISearch> = ({
+  title,
+  name,
+  callBackParent,
+  ...rest
+}) => {
   const inputElementRef = useRef<any>(null);
 
   return (
@@ -21,6 +29,8 @@ const InputSearch: React.FC<ISearch> = ({ title }) => {
           placeholder={title}
           placeholderTextColor="#A4A4B2"
           ref={inputElementRef}
+          onChangeText={callBackParent}
+          {...rest}
         />
       </ContentInput>
     </Touchable>
