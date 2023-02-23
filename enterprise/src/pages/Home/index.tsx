@@ -1,6 +1,6 @@
 /* eslint-disable no-bitwise */
-import React, { useState, useEffect, useRef } from 'react';
-import { View, Image, FlatList, Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Image, FlatList, } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useNavigation } from '@react-navigation/native';
@@ -17,7 +17,6 @@ import { requestShow } from '../../store/modules/show/actions';
 import InputSearch from '../../components/InputSearch';
 import Loading from '../../components/Loading';
 
-import api from '../../services/api';
 
 import {
   Container,
@@ -32,12 +31,11 @@ import {
   TitleCard,
   DescriptionCard,
   ContentDescription,
-  ViewShimmer,
   EmptyFilterData,
   ContentEmpty,
 } from './styles';
 
-const Home: React.FC = () => {
+const Home = () => {
   const [dataEnterprise, setDataEnterprise] = useState<IEnterprise[]>([]);
 
   const [loading, setLoading] = useState(false);
@@ -45,14 +43,12 @@ const Home: React.FC = () => {
 
   const [dataFiltered, setDataFiltered] = useState<IEnterprise[]>([]);
 
-  console.log(dataFiltered, 'FILTERED');
+
 
   const enterprise = useSelector(state => state.enterprise);
-
   const headers = useSelector(state => state.show);
 
   const dispatch = useDispatch();
-
   const navigation = useNavigation();
 
   useEffect(() => {
