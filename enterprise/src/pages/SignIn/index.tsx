@@ -40,7 +40,7 @@ interface SignInFormData {
   password: string;
 }
 
-const SignIn: React.FC = () => {
+const SignIn = () => {
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();

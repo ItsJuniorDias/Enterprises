@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Image,
   ScrollView,
   Dimensions,
   BackHandler,
-  Alert,
-  Animated,
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
@@ -40,12 +38,10 @@ import overflow from '../../assets/Overflow.png';
 
 import Loading from '../../components/Loading';
 
-const Show: React.FC = () => {
+const Show = () => {
   const [headerShown, setHeaderShown] = useState(false);
 
   const { enterprise } = useSelector(state => state.show);
-
-  console.log(enterprise, 'Show Item');
 
   const navigation = useNavigation();
   const dispatch = useDispatch();
