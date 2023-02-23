@@ -18,8 +18,6 @@ type GetShowRequest = ReturnType<typeof requestShow>;
 function* getShow({ payload }: GetShowRequest) {
   const { id, headers } = payload;
 
-  console.log(payload, 'Payload');
-
   try {
     const response: AxiosResponse<IShow | any> = yield call(
       api.get,
@@ -28,8 +26,6 @@ function* getShow({ payload }: GetShowRequest) {
         headers,
       },
     );
-
-    console.log(response, 'Response');
 
     yield put(successShow(response.data));
   } catch (e) {

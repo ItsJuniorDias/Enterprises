@@ -8,8 +8,6 @@ const INITIAL_STATE: IShowState = {
 };
 
 const show: Reducer<IShowState> = (state = INITIAL_STATE, action) => {
-  console.log(action, 'Action');
-  console.log(state, 'State');
 
   return produce(state, draft => {
     switch (action.type) {
