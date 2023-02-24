@@ -40,6 +40,8 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
 
+  console.log('TESTE');
+
   const [dataFiltered, setDataFiltered] = useState<IEnterprise[]>([]);
 
   const enterprise = useSelector((state) => state.enterprise);
