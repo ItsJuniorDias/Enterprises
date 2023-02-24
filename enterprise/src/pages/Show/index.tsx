@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Image,
-  ScrollView,
-  Dimensions,
-  BackHandler,
-} from 'react-native';
+import { Image, ScrollView, Dimensions, BackHandler } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -41,7 +36,7 @@ import Loading from '../../components/Loading';
 const Show = () => {
   const [headerShown, setHeaderShown] = useState(false);
 
-  const { enterprise } = useSelector(state => state.show);
+  const { enterprise } = useSelector((state) => state.show);
 
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -59,7 +54,7 @@ const Show = () => {
     return () => {
       BackHandler.removeEventListener(
         'hardwareBackPress',
-        handleBackButtonClick,
+        handleBackButtonClick
       );
     };
   }, []);
@@ -83,7 +78,7 @@ const Show = () => {
         <>
           <SafeArea>
             <ScrollView
-              onScroll={event => {
+              onScroll={(event) => {
                 const scrolling = event.nativeEvent.contentOffset.y;
 
                 if (scrolling > 50) {

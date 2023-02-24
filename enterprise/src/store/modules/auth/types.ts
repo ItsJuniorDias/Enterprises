@@ -1,18 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
-/* eslint-disable no-shadow */
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-
-// export interface IUser {
-//   id: number;
-//   investor_name: string;
-//   email: string;
-//   city: string;
-//   country: string;
-//   balance: number;
-//   portfolio_value: number;
-// }
-
 export enum ActionTypes {
   loginAuthRequest = 'LOGIN_AUTH_REQUEST',
   loginAuthSuccess = 'LOGIN_AUTH_SUCCESS',

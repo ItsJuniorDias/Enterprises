@@ -3,7 +3,7 @@ import { ActivityIndicator } from 'react-native';
 
 import { ContentLoading } from './styles';
 
-const Loading: React.FC = () => {
+const Loading = () => {
   return (
     <ContentLoading>
       <ActivityIndicator size="large" color="#2D4379" />

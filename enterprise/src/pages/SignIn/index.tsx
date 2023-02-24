@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable react/prop-types */
 import React, { useState, useCallback, useRef } from 'react';
 import { Image, View, TouchableOpacity, TextInput, Alert } from 'react-native';
 import { Form } from '@unform/mobile';
@@ -85,7 +82,7 @@ const SignIn = () => {
 
       Alert.alert(
         'Erro na autenticação',
-        'Ocorreu um erro ao fazer login, cheque as credenciais',
+        'Ocorreu um erro ao fazer login, cheque as credenciais'
       );
     }
   }, []);

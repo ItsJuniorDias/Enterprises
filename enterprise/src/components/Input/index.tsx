@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, {
   useState,
   useEffect,
@@ -11,7 +10,6 @@ import { TextInputProps } from 'react-native';
 import { useField } from '@unform/core';
 
 import { Container, TextInput, Icon } from './styles';
-
 interface InputProps extends TextInputProps {
   name: string;
   icon: string;
@@ -27,7 +25,7 @@ interface InputRef {
 
 const Input: React.RefForwardingComponent<InputRef, InputProps> = (
   { name, icon, ...rest },
-  ref,
+  ref
 ) => {
   const inputElementRef = useRef<any>(null);
 
@@ -89,7 +87,7 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (
         defaultValue={defaultValue}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
-        onChangeText={value => {
+        onChangeText={(value) => {
           inputValueRef.current.value = value;
         }}
         {...rest}

@@ -1,7 +1,5 @@
-import React, { useState, useRef, useEffect, useImperativeHandle } from 'react';
-import { Image, TextInput, View, TextInputProps } from 'react-native';
-
-import { useField } from '@unform/core';
+import React, { useRef } from 'react';
+import { Image, TextInputProps } from 'react-native';
 import { Touchable, ContentInput, Input } from './styles';
 
 import search from '../../assets/search.png';

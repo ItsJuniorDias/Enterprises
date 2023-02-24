@@ -1,6 +1,6 @@
 /* eslint-disable no-bitwise */
 import React, { useState, useEffect } from 'react';
-import { View, Image, FlatList, } from 'react-native';
+import { View, Image, FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useNavigation } from '@react-navigation/native';
@@ -16,7 +16,6 @@ import { requestShow } from '../../store/modules/show/actions';
 
 import InputSearch from '../../components/InputSearch';
 import Loading from '../../components/Loading';
-
 
 import {
   Container,
@@ -43,10 +42,8 @@ const Home = () => {
 
   const [dataFiltered, setDataFiltered] = useState<IEnterprise[]>([]);
 
-
-
-  const enterprise = useSelector(state => state.enterprise);
-  const headers = useSelector(state => state.show);
+  const enterprise = useSelector((state) => state.enterprise);
+  const headers = useSelector((state) => state.show);
 
   const dispatch = useDispatch();
   const navigation = useNavigation();
@@ -100,9 +97,9 @@ const Home = () => {
 
   const handleFilterValue = (value: any) => {
     const itemFiltered = dataEnterprise.filter(
-      item =>
+      (item) =>
         item.enterprise_name.toLowerCase().includes(value.toLowerCase()) ||
-        item.description.toLowerCase().includes(value.toLowerCase()),
+        item.description.toLowerCase().includes(value.toLowerCase())
     );
 
     if (itemFiltered) {
@@ -142,7 +139,7 @@ const Home = () => {
             <InputSearch
               title="Buscar por nome"
               name="filter"
-              callBackParent={value => handleFilterValue(value)}
+              callBackParent={(value) => handleFilterValue(value)}
             />
 
             <ContentFlat>

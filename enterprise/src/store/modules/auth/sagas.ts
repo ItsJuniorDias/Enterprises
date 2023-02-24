@@ -27,7 +27,7 @@ function* loginAuthUser({ payload }: authLoginRequest) {
     const response: AxiosResponse<IAuthResponse | any> = yield call(
       api.post,
       '/users/auth/sign_in',
-      data,
+      data
     );
 
     yield put(loginToAuthSuccess(response.data));
@@ -48,7 +48,7 @@ function* loginAuthUser({ payload }: authLoginRequest) {
 
     Alert.alert(
       'Erro na autenticação',
-      'Ocorreu um erro ao fazer login, cheque as credenciais',
+      'Ocorreu um erro ao fazer login, cheque as credenciais'
     );
   }
 }

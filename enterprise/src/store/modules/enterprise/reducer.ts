@@ -8,9 +8,9 @@ const INITIAL_STATE: IEnterpriseState = {
 
 const enterprise: Reducer<IEnterpriseState> = (
   state = INITIAL_STATE,
-  action,
+  action
 ) => {
-  return produce(state, draft => {
+  return produce(state, (draft) => {
     switch (action.type) {
       case ActionTypes.getEnterpriseSuccess: {
         const { enterprises } = action.payload.data;

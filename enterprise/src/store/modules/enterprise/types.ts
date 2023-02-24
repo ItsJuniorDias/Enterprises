@@ -1,7 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-
 export enum ActionTypes {
   getEnterpriseRequest = 'GET_ENTERPRISE_REQUEST',
   getEnterpriseSuccess = 'GET_ENTERPRISE_SUCCESS',
@@ -13,7 +9,6 @@ interface TypeEnterprise {
   id: number;
   enterprise_type_name: string;
 }
-
 export interface IEnterprise {
   id: number;
   email_enterprise: null;

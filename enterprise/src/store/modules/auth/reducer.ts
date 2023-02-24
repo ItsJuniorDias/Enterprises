@@ -8,7 +8,7 @@ const INITIAL_STATE: IAuthState = {
 };
 
 const auth: Reducer<IAuthState> = (state = INITIAL_STATE, action) => {
-  return produce(state, draft => {
+  return produce(state, (draft) => {
     switch (action.type) {
       case ActionTypes.loginAuthSuccess: {
         const { data } = action.payload;
