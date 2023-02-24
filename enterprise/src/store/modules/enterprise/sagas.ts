@@ -23,7 +23,7 @@ function* getEnterprises({ payload }: GetEnterpriseRequest) {
       '/enterprises',
       {
         headers,
-      },
+      }
     );
 
     yield put(getEnterpriseSuccess(response.data));
