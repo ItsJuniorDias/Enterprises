@@ -2,7 +2,8 @@ import React, { useState, useCallback, useRef } from 'react';
 import { Image, View, TouchableOpacity, TextInput, Alert } from 'react-native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
-import { useNavigation } from '@react-navigation/core';
+
+import { useNavigation } from '@react-navigation/native';
 
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
@@ -36,7 +37,7 @@ interface SignInFormData {
   password: string;
 }
 
-const SignIn = () => {
+export const SignIn = () => {
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
@@ -158,5 +159,3 @@ const SignIn = () => {
     </Container>
   );
 };
-
-export default SignIn;

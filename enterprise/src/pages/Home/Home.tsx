@@ -33,7 +33,7 @@ import {
   ContentEmpty,
 } from './styles';
 
-const Home = () => {
+export const Home = () => {
   const [dataEnterprise, setDataEnterprise] = useState<IEnterprise[]>([]);
 
   const [loading, setLoading] = useState(false);
@@ -167,5 +167,3 @@ const Home = () => {
     </>
   );
 };
-
-export default Home;

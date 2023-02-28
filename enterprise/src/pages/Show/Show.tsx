@@ -33,7 +33,7 @@ import overflow from '../../assets/Overflow.png';
 
 import { Loading } from '../../components';
 
-const Show = () => {
+export const Show = () => {
   const [headerShown, setHeaderShown] = useState(false);
 
   const { enterprise } = useSelector((state) => state.show);
@@ -180,5 +180,3 @@ const Show = () => {
     </>
   );
 };
-
-export default Show;
