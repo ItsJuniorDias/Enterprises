@@ -24,12 +24,12 @@ interface InputRef {
 }
 
 const Input: React.RefForwardingComponent<InputRef, InputProps> = (
-  { name, icon, ...rest },
+  { testID = 'inputId', name, icon, ...rest },
   ref
 ) => {
   const inputElementRef = useRef<any>(null);
-
   const { registerField, defaultValue = '', fieldName, error } = useField(name);
+
   const inputValueRef = useRef<InputValueReferences>({ value: defaultValue });
 
   const [isFocused, setIsFocused] = useState(false);
@@ -70,6 +70,7 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (
 
   return (
     <Container
+      testID="container_inputId"
       isFocused={isFocused}
       isErrored={!!error}
       isValue={inputValueRef.current.value}
@@ -81,6 +82,7 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (
       />
 
       <TextInput
+        testID={testID}
         ref={inputElementRef}
         keyboardAppearance="light"
         placeholderTextColor="#9d9d9d"
