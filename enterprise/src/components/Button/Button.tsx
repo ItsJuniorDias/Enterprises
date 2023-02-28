@@ -1,9 +1,7 @@
 import React from 'react';
-import { RectButtonProperties } from 'react-native-gesture-handler';
-
+import { TouchableOpacityProps } from 'react-native';
 import { Container, ButtonText } from './styles';
-
-interface ButtonProps extends RectButtonProperties {
+interface ButtonProps extends TouchableOpacityProps {
   children: string;
 }
 
@@ -13,7 +11,7 @@ export const Button = ({
   ...rest
 }: ButtonProps) => {
   return (
-    <Container testID={testID} {...rest}>
+    <Container activeOpacity={0.6} testID={testID} {...rest}>
       <ButtonText>{children}</ButtonText>
     </Container>
   );

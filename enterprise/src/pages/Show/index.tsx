@@ -31,7 +31,7 @@ import {
 import arrow from '../../assets/arrow.png';
 import overflow from '../../assets/Overflow.png';
 
-import Loading from '../../components/Loading';
+import { Loading } from '../../components';
 
 const Show = () => {
   const [headerShown, setHeaderShown] = useState(false);

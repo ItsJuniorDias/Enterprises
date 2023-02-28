@@ -10,12 +10,12 @@ interface ISearch extends TextInputProps {
   callBackParent(value: any): void;
 }
 
-const InputSearch: React.FC<ISearch> = ({
+export const InputSearch = ({
   title,
   name,
   callBackParent,
   ...rest
-}) => {
+}: ISearch) => {
   const inputElementRef = useRef<any>(null);
 
   return (
@@ -34,5 +34,3 @@ const InputSearch: React.FC<ISearch> = ({
     </Touchable>
   );
 };
-
-export default InputSearch;

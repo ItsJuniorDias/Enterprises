@@ -12,9 +12,8 @@ import getValidationErrors from '../../utils/getValidationErrors';
 
 import api from '../../services/api';
 
-import Input from '../../components/Input';
-import Button from '../../components/Button';
-import Loading from '../../components/Loading';
+import Input from '../../components/Input/Input';
+import { Button, Loading } from '../../components';
 
 import iconGoogle from '../../assets/Google.png';
 import iconFacebook from '../../assets/Facebook.png';

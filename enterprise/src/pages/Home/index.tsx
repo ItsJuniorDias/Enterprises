@@ -14,8 +14,7 @@ import { IEnterprise } from '../../store/modules/enterprise/types';
 
 import { requestShow } from '../../store/modules/show/actions';
 
-import InputSearch from '../../components/InputSearch';
-import Loading from '../../components/Loading';
+import { InputSearch, Loading } from '../../components';
 
 import {
   Container,

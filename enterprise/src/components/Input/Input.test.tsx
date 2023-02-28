@@ -24,10 +24,11 @@ describe('Behavior Input', () => {
       returnKeyType="next"
     />
   );
-  it('should render input', () => {
-    const result = render(screenRender);
 
-    expect(result).toBeTruthy();
+  it('render snapshot', () => {
+    const result = render(screenRender).toJSON();
+
+    expect(result).toMatchSnapshot();
   });
 
   it('should call the onFocus', () => {
@@ -52,6 +53,16 @@ describe('Behavior Input', () => {
 
     fireEvent.changeText(input, 'juniordias@gmail.com');
 
-    // expect();
+    expect(input.props.onChangeText()).toBeUndefined();
+  });
+
+  it('should call the onBlur', () => {
+    const { getByTestId } = render(screenRender);
+
+    const input = getByTestId('inputId');
+
+    fireEvent(input, 'blur');
+
+    expect(input.props.onBlur()).toBeUndefined();
   });
 });
