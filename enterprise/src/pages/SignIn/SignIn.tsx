@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { loginToAuthRequest } from '../../store/modules/auth/actions';
 
-import getValidationErrors from '../../utils/getValidationErrors';
+import { getValidationErrors } from '../../utils/getValidationErrors';
 
 import api from '../../services/api';
 
