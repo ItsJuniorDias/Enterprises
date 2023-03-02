@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { AxiosResponse } from 'axios';
 import { Alert } from 'react-native';
 import { all, takeLatest, call, put } from 'redux-saga/effects';
@@ -10,17 +9,14 @@ import {
   loginToAuthRequest,
 } from './actions';
 
-import {
-  getEnterpriseHeaders,
-  getEnterpriseRequest,
-} from '../enterprise/actions';
+import { getEnterpriseRequest } from '../enterprise/actions';
 
 import { ActionTypes, IAuthResponse } from './types';
 import { requestHeadersShow } from '../show/actions';
 
 type authLoginRequest = ReturnType<typeof loginToAuthRequest>;
 
-function* loginAuthUser({ payload }: authLoginRequest) {
+export function* loginAuthUser({ payload }: authLoginRequest) {
   const { data } = payload;
 
   try {
@@ -42,7 +38,6 @@ function* loginAuthUser({ payload }: authLoginRequest) {
 
     yield put(getEnterpriseRequest(dataHeader));
     yield put(requestHeadersShow(dataHeader));
-    // yield put(push('Home'));
   } catch (e) {
     yield put(loginToAuthFailure());
 
@@ -53,4 +48,4 @@ function* loginAuthUser({ payload }: authLoginRequest) {
   }
 }
 
-export default all([takeLatest(ActionTypes.loginAuthRequest, loginAuthUser)]);
+all([takeLatest(ActionTypes.loginAuthRequest, loginAuthUser)]);

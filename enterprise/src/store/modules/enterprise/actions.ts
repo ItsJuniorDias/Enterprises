@@ -1,15 +1,6 @@
-import { ActionTypes, IEnterprise } from './types';
+import { ActionTypes, IEnterprise, IHeaders } from './types';
 
-export function getEnterpriseHeaders(enterprises: IEnterprise) {
-  return {
-    type: ActionTypes.getEnterpriseSuccess,
-    payload: {
-      enterprises,
-    },
-  };
-}
-
-export function getEnterpriseRequest(headers: IEnterprise) {
+export function getEnterpriseRequest(headers: IHeaders) {
   return {
     type: ActionTypes.getEnterpriseRequest,
     payload: {

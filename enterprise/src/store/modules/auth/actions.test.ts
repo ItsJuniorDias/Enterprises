@@ -11,7 +11,7 @@ describe('Behavior actions', () => {
     email: 'juniordias@live.com',
     password: '124456',
   };
-  it('render actions loginToAuthRequest', () => {
+  it('should call actions loginToAuthRequest', () => {
     const result = loginToAuthRequest(data);
 
     expect(result).toMatchObject({
@@ -19,7 +19,7 @@ describe('Behavior actions', () => {
     });
   });
 
-  it('render actions loginToAuthSuccess', () => {
+  it('should call actions loginToAuthSuccess', () => {
     const result = loginToAuthSuccess(data);
 
     expect(result).toMatchObject({
@@ -27,13 +27,13 @@ describe('Behavior actions', () => {
     });
   });
 
-  it('render actions loginToAuthFailure', () => {
+  it('should call actions loginToAuthFailure', () => {
     const result = loginToAuthFailure();
 
     expect(result).toMatchObject({ type: 'LOGIN_AUTH_FAILURE' });
   });
 
-  it('render actions logoutUser', () => {
+  it('should call actions logoutUser', () => {
     const result = logoutUser();
 
     expect(result).toMatchObject({ type: 'LOGOUT_USER' });

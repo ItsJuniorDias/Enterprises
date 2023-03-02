@@ -9,6 +9,13 @@ interface TypeEnterprise {
   id: number;
   enterprise_type_name: string;
 }
+
+export interface IHeaders {
+  uid: any;
+  client: any;
+  'access-token': any;
+}
+
 export interface IEnterprise {
   id: number;
   email_enterprise: null;

@@ -2,7 +2,7 @@ import { Reducer } from 'react';
 import produce from 'immer';
 import { ActionTypes, IEnterpriseState } from './types';
 
-const INITIAL_STATE: IEnterpriseState = {
+export const INITIAL_STATE: IEnterpriseState = {
   enterprise: {},
 };
 

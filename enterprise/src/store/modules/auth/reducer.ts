@@ -1,9 +1,8 @@
-/* eslint-disable default-case */
 import { Reducer } from 'react';
 import produce from 'immer';
 import { ActionTypes, IAuthState } from './types';
 
-const INITIAL_STATE: IAuthState = {
+export const INITIAL_STATE: IAuthState = {
   auth: [],
 };
 
@@ -12,10 +11,6 @@ const auth: Reducer<IAuthState> = (state = INITIAL_STATE, action) => {
     switch (action.type) {
       case ActionTypes.loginAuthSuccess: {
         const { data } = action.payload;
-
-        // draft.user.push({
-        //   data.investor,
-        // });
 
         draft.auth.push({
           data,

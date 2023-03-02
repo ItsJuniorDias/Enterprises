@@ -14,7 +14,7 @@ import {
 
 type GetEnterpriseRequest = ReturnType<typeof getEnterpriseRequest>;
 
-function* getEnterprises({ payload }: GetEnterpriseRequest) {
+export function* getEnterprises({ payload }: GetEnterpriseRequest) {
   const { headers } = payload;
 
   try {
@@ -32,6 +32,4 @@ function* getEnterprises({ payload }: GetEnterpriseRequest) {
   }
 }
 
-export default all([
-  takeLatest(ActionTypes.getEnterpriseRequest, getEnterprises),
-]);
+all([takeLatest(ActionTypes.getEnterpriseRequest, getEnterprises)]);
