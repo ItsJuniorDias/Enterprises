@@ -3,19 +3,12 @@ import { AxiosResponse } from 'axios';
 import { all, takeLatest, call, put } from 'redux-saga/effects';
 
 import api from '../../../services/api';
-
 import { IShow, ActionTypes } from './types';
-
-import {
-  requestShow,
-  successShow,
-  failureShow,
-  requestHeadersShow,
-} from './actions';
+import { requestShow, successShow, failureShow } from './actions';
 
 type GetShowRequest = ReturnType<typeof requestShow>;
 
-function* getShow({ payload }: GetShowRequest) {
+export function* getShow({ payload }: GetShowRequest) {
   const { id, headers } = payload;
 
   try {
@@ -24,7 +17,7 @@ function* getShow({ payload }: GetShowRequest) {
       `/enterprises/${id}`,
       {
         headers,
-      },
+      }
     );
 
     yield put(successShow(response.data));
@@ -33,4 +26,4 @@ function* getShow({ payload }: GetShowRequest) {
   }
 }
 
-export default all([takeLatest(ActionTypes.requestShow, getShow)]);
+all([takeLatest(ActionTypes.requestShow, getShow)]);

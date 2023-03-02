@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { loginAuthUser } from './sagas';
 import { ActionTypes } from './types';
 

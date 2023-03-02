@@ -1,16 +1,13 @@
 import { AxiosResponse } from 'axios';
 import { Alert } from 'react-native';
 import { all, takeLatest, call, put } from 'redux-saga/effects';
-
 import api from '../../../services/api';
 import {
   loginToAuthSuccess,
   loginToAuthFailure,
   loginToAuthRequest,
 } from './actions';
-
 import { getEnterpriseRequest } from '../enterprise/actions';
-
 import { ActionTypes, IAuthResponse } from './types';
 import { requestHeadersShow } from '../show/actions';
 

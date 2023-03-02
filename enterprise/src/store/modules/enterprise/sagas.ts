@@ -1,9 +1,7 @@
 /* eslint-disable require-yield */
 import { AxiosResponse } from 'axios';
 import { all, takeLatest, call, put } from 'redux-saga/effects';
-
 import api from '../../../services/api';
-
 import { ActionTypes, IEnterprise } from './types';
 
 import {

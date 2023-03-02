@@ -1,6 +1,6 @@
 import { IShow, ActionTypes, IHeaders } from './types';
 
-export function requestHeadersShow(headers: IShow) {
+export function requestHeadersShow(headers: IHeaders) {
   return {
     type: ActionTypes.requestHeaders,
     payload: {
@@ -16,7 +16,7 @@ export function resetState() {
   };
 }
 
-export function requestShow(headers: IHeaders, id: IShow) {
+export function requestShow(headers: IHeaders, id: string) {
   return {
     type: ActionTypes.requestShow,
     payload: {

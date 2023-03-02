@@ -35,9 +35,9 @@ export interface IShow {
 }
 
 export interface IHeaders {
-  access_token: string;
-  client: string;
-  uid: string;
+  uid: any;
+  client: any;
+  'access-token': any;
 }
 
 export interface IShowState {

@@ -2,14 +2,13 @@ import produce from 'immer';
 import { Reducer } from 'react';
 import { IShowState, ActionTypes } from './types';
 
-const INITIAL_STATE: IShowState = {
+export const INITIAL_STATE: IShowState = {
   show: {},
   headers: {},
 };
 
 const show: Reducer<IShowState> = (state = INITIAL_STATE, action) => {
-
-  return produce(state, draft => {
+  return produce(state, (draft) => {
     switch (action.type) {
       case ActionTypes.successShow: {
         const { data } = action.payload;
@@ -27,7 +26,7 @@ const show: Reducer<IShowState> = (state = INITIAL_STATE, action) => {
         };
       }
       case ActionTypes.resetState: {
-        const { enterprise } = action;
+        const { enterprise } = action.payload;
 
         return {
           ...draft,
