@@ -61,6 +61,7 @@ exports[`Behavior InputSearch render snapshot 1`] = `
           },
         ]
       }
+      testID="inputSearch_testId"
       underlineColorAndroid="transparent"
     />
   </View>

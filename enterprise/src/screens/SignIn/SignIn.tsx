@@ -2,20 +2,14 @@ import React, { useState, useCallback, useRef } from 'react';
 import { Image, View, TouchableOpacity, TextInput, Alert } from 'react-native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
-
 import { useNavigation } from '@react-navigation/native';
-
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { loginToAuthRequest } from '../../store/modules/auth/actions';
-
 import { getValidationErrors } from '../../utils/getValidationErrors';
-
 import api from '../../services/api';
-
 import Input from '../../components/Input/Input';
 import { Button, Loading } from '../../components';
-
 import iconGoogle from '../../assets/Google.png';
 import iconFacebook from '../../assets/Facebook.png';
 import forgotPassword from '../../assets/round-arrow_right_alt-24px.png';

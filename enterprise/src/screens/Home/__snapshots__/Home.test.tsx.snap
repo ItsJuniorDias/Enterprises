@@ -82,6 +82,7 @@ exports[`Behavior Home render snapshot 1`] = `
           "width": 48,
         }
       }
+      testID="buttonExit_testId"
     >
       <Image
         source={
@@ -152,6 +153,7 @@ exports[`Behavior Home render snapshot 1`] = `
             },
           ]
         }
+        testID="inputSearch_testId"
         underlineColorAndroid="transparent"
       />
     </View>
@@ -172,7 +174,23 @@ exports[`Behavior Home render snapshot 1`] = `
     <RCTScrollView
       data={
         Array [
-          Object {},
+          Object {
+            "city": "",
+            "country": "",
+            "description": "Nubank é uma empresa startup brasileira pioneira no segmento de serviços financeiros",
+            "email_enterprise": null,
+            "enterprise_name": "NuBank",
+            "enterprise_type": undefined,
+            "facebook": null,
+            "id": 0,
+            "linkedin": null,
+            "own_enterprise": false,
+            "phone": null,
+            "photo": "",
+            "share_price": 0,
+            "twitter": null,
+            "value": 0,
+          },
         ]
       }
       disableVirtualization={false}
@@ -221,11 +239,12 @@ exports[`Behavior Home render snapshot 1`] = `
                 "width": "100%",
               }
             }
+            testID="containerCard_testId"
           >
             <Image
               source={
                 Object {
-                  "uri": "https://empresas.ioasys.com.br/undefined",
+                  "uri": "https://empresas.ioasys.com.br/",
                 }
               }
               style={
@@ -269,7 +288,9 @@ exports[`Behavior Home render snapshot 1`] = `
                     },
                   ]
                 }
-              />
+              >
+                NuBank
+              </Text>
               <View
                 style={
                   Array [
@@ -291,7 +312,9 @@ exports[`Behavior Home render snapshot 1`] = `
                       },
                     ]
                   }
-                />
+                >
+                  Nubank é uma empresa startup brasileira pioneira no segmento de serviços financeiros
+                </Text>
               </View>
             </View>
           </View>

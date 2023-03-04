@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Image, ScrollView, Dimensions, BackHandler } from 'react-native';
-
 import { useNavigation } from '@react-navigation/native';
-
 import { useDispatch, useSelector } from 'react-redux';
-
 import LinearGradient from 'react-native-linear-gradient';
 import { resetState } from '../../store/modules/show/actions';
+import arrow from '../../assets/arrow.png';
+import overflow from '../../assets/Overflow.png';
+import { Loading } from '../../components';
 
 import {
   Container,
@@ -27,11 +27,6 @@ import {
   FloatDescription,
   ViewShimmer,
 } from './styles';
-
-import arrow from '../../assets/arrow.png';
-import overflow from '../../assets/Overflow.png';
-
-import { Loading } from '../../components';
 
 export const Show = () => {
   const [headerShown, setHeaderShown] = useState(false);

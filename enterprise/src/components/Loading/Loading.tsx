@@ -1,6 +1,5 @@
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
-
 import { ContentLoading } from './styles';
 
 export const Loading = () => {

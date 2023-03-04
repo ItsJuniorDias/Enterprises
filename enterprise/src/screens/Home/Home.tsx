@@ -1,20 +1,14 @@
-/* eslint-disable no-bitwise */
 import React, { useState, useEffect } from 'react';
 import { View, Image, FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { useNavigation } from '@react-navigation/native';
-
 import { IShow } from 'store/modules/show/types';
 import exit from '../../assets/Vector.png';
 import not from '../../assets/not.png';
-
 import { logoutUser } from '../../store/modules/auth/actions';
 import { IEnterprise } from '../../store/modules/enterprise/types';
-
 import { requestShow } from '../../store/modules/show/actions';
-
-import { InputSearch, Loading } from '../../components';
+import { InputSearch } from '../../components';
 
 import {
   Container,
@@ -35,10 +29,7 @@ import {
 
 export const Home = () => {
   const [dataEnterprise, setDataEnterprise] = useState<IEnterprise[]>([]);
-
-  const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
-
   const [dataFiltered, setDataFiltered] = useState<IEnterprise[]>([]);
 
   const enterprise = useSelector((state) => state.enterprise);
@@ -53,20 +44,21 @@ export const Home = () => {
 
   const handeExit = () => {
     dispatch(logoutUser());
-
     navigation.navigate('/SignIn');
   };
 
   const handleShow = async (id: IShow) => {
     dispatch(requestShow(headers, id));
-
     navigation.navigate('/Show');
   };
 
   const CardItem = ({ title, description, photo, id }) => {
     return (
       <>
-        <ContainerCard onPress={() => handleShow(id)}>
+        <ContainerCard
+          testID="containerCard_testId"
+          onPress={() => handleShow(id)}
+        >
           <ImageCard
             source={{
               uri: `https://empresas.ioasys.com.br/${photo}`,
@@ -101,7 +93,7 @@ export const Home = () => {
         item.description.toLowerCase().includes(value.toLowerCase())
     );
 
-    if (itemFiltered) {
+    if (!!itemFiltered.length) {
       setDataFiltered(itemFiltered);
       setFilter(true);
     } else {
@@ -120,50 +112,45 @@ export const Home = () => {
 
   return (
     <>
-      {loading && <Loading />}
-      {!loading && (
-        <>
-          <Container>
-            <Header>
-              <View>
-                <Title>Olá, Alexandre!</Title>
-                <Description>Bem-vindo(a)</Description>
-              </View>
+      <Container>
+        <Header>
+          <View>
+            <Title>Olá, Alexandre!</Title>
+            <Description>Bem-vindo(a)</Description>
+          </View>
 
-              <TouchableExit onPress={() => handeExit()}>
-                <Image source={exit} />
-              </TouchableExit>
-            </Header>
+          <TouchableExit testID="buttonExit_testId" onPress={() => handeExit()}>
+            <Image source={exit} />
+          </TouchableExit>
+        </Header>
 
-            <InputSearch
-              title="Buscar por nome"
-              name="filter"
-              callBackParent={(value) => handleFilterValue(value)}
+        <InputSearch
+          title="Buscar por nome"
+          name="filter"
+          callBackParent={(value) => handleFilterValue(value)}
+        />
+
+        <ContentFlat>
+          {filter ? (
+            <FlatList
+              data={dataFiltered}
+              ListEmptyComponent={emptyListDataFilter}
+              renderItem={renderItem}
+              keyExtractor={(_, index) => {
+                return index.toString();
+              }}
             />
-
-            <ContentFlat>
-              {filter ? (
-                <FlatList
-                  data={dataFiltered}
-                  ListEmptyComponent={emptyListDataFilter}
-                  renderItem={renderItem}
-                  keyExtractor={(item, index) => {
-                    return index.toString();
-                  }}
-                />
-              ) : (
-                <FlatList
-                  data={dataEnterprise}
-                  renderItem={renderItem}
-                  keyExtractor={(item, index) => {
-                    return index.toString();
-                  }}
-                />
-              )}
-            </ContentFlat>
-          </Container>
-        </>
-      )}
+          ) : (
+            <FlatList
+              data={dataEnterprise}
+              renderItem={renderItem}
+              keyExtractor={(_, index) => {
+                return index.toString();
+              }}
+            />
+          )}
+        </ContentFlat>
+      </Container>
     </>
   );
 };
