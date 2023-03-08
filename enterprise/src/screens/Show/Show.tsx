@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Image, ScrollView, Dimensions, BackHandler } from 'react-native';
+import React, { useEffect } from 'react';
+import { Image, ScrollView, BackHandler, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-import LinearGradient from 'react-native-linear-gradient';
+
 import { resetState } from '../../store/modules/show/actions';
 import arrow from '../../assets/arrow.png';
 import overflow from '../../assets/Overflow.png';
@@ -29,14 +29,10 @@ import {
 } from './styles';
 
 export const Show = () => {
-  const [headerShown, setHeaderShown] = useState(false);
-
-  const { enterprise } = useSelector((state) => state.show);
+  const { show } = useSelector((state) => state.show);
 
   const navigation = useNavigation();
   const dispatch = useDispatch();
-
-  const windowHeight = Dimensions.get('window').height;
 
   function handleBackButtonClick() {
     dispatch(resetState());
@@ -46,6 +42,7 @@ export const Show = () => {
 
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
+
     return () => {
       BackHandler.removeEventListener(
         'hardwareBackPress',
@@ -61,7 +58,7 @@ export const Show = () => {
 
   return (
     <>
-      {!enterprise && (
+      {!show && (
         <>
           <ContentLoading>
             <Loading />
@@ -69,26 +66,17 @@ export const Show = () => {
         </>
       )}
 
-      {enterprise && (
+      {show && (
         <>
           <SafeArea>
-            <ScrollView
-              onScroll={(event) => {
-                const scrolling = event.nativeEvent.contentOffset.y;
-
-                if (scrolling > 50) {
-                  setHeaderShown(true);
-                } else {
-                  setHeaderShown(false);
-                }
-              }}
-              // onScroll will be fired every 16ms
-              scrollEventThrottle={16}
-            >
+            <ScrollView>
               <Container>
                 <Header>
                   <Row>
-                    <Touchable onPress={() => handleGoBack()}>
+                    <Touchable
+                      testID="buttonTouchable_testID"
+                      onPress={() => handleGoBack()}
+                    >
                       <Image source={arrow} />
                     </Touchable>
 
@@ -97,8 +85,8 @@ export const Show = () => {
                     </Touchable>
                   </Row>
 
-                  {enterprise.enterprise_name ? (
-                    <Title>{enterprise.enterprise_name}</Title>
+                  {show.enterprise_name ? (
+                    <Title>{show.enterprise_name}</Title>
                   ) : (
                     <>
                       <ViewShimmer
@@ -114,11 +102,12 @@ export const Show = () => {
               <Body>
                 <ImageBody
                   source={{
-                    uri: `https://empresas.ioasys.com.br/${enterprise.photo}`,
+                    uri: `https://empresas.ioasys.com.br/${show.photo}`,
                   }}
                 />
-                {!enterprise.photo && (
-                  <ViewShimmer
+
+                {!show.photo && (
+                  <View
                     style={{
                       width: '100%',
                       height: 219,
@@ -132,42 +121,32 @@ export const Show = () => {
               </Body>
 
               <Content>
-                {enterprise.city ? (
+                {show.city ? (
                   <TitleBody>
-                    {enterprise.city}, {enterprise.country}
+                    {show.city}, {show.country}
                   </TitleBody>
                 ) : (
                   <>
-                    <ViewShimmer
+                    <View
                       style={{ borderRadius: 16, marginTop: 32, height: 24 }}
                     >
                       <FloatLocation />
-                    </ViewShimmer>
+                    </View>
                   </>
                 )}
-                {enterprise.description ? (
-                  <Description>{enterprise.description}</Description>
+
+                {show.description ? (
+                  <Description>{show.description}</Description>
                 ) : (
                   <>
-                    <ViewShimmer
+                    <View
                       style={{ borderRadius: 16, marginTop: 32, height: 24 }}
                     >
                       <FloatDescription />
-                    </ViewShimmer>
+                    </View>
                   </>
                 )}
               </Content>
-
-              <LinearGradient
-                style={{
-                  width: '100%',
-                  height: 109,
-                  position: 'absolute',
-                  marginTop: windowHeight * 0.87,
-                  transform: [{ translateY: headerShown ? 155 : -20 }],
-                }}
-                colors={[' rgba(249, 250, 255, 0.3)', '#fafbff']}
-              />
             </ScrollView>
           </SafeArea>
         </>

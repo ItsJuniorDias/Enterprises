@@ -5,6 +5,7 @@ import { ActionTypes } from './types';
 describe('Behavior saga auth', () => {
   beforeEach(() => {
     const result = loginAuthUser(payload);
+
     result.next();
     result.next();
     result.next();
@@ -23,7 +24,6 @@ describe('Behavior saga auth', () => {
   };
   it('should return action loginToAuthFailure', () => {
     const result = loginAuthUser(payload);
-
     result.next().value;
 
     expect(result.next().value.payload.action).toMatchObject({

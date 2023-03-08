@@ -1,6 +1,3 @@
-import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder';
-import LinearGradient from 'react-native-linear-gradient';
-
 import styled from 'styled-components/native';
 
 export const SafeArea = styled.SafeAreaView`
@@ -114,5 +111,3 @@ export const FloatDescription = styled.View`
   border-radius: 16px;
   margin-top: 32px;
 `;
-
-export const ViewShimmer = createShimmerPlaceholder(LinearGradient);

@@ -114,7 +114,7 @@ exports[`Behavior SignIn render snapshot 1`] = `
                 },
               ]
             }
-            testID="inputId"
+            testID="inputEmail_testID"
             underlineColorAndroid="transparent"
           />
         </View>
@@ -180,7 +180,7 @@ exports[`Behavior SignIn render snapshot 1`] = `
                 },
               ]
             }
-            testID="inputId"
+            testID="inputPassword_testID"
             underlineColorAndroid="transparent"
           />
         </View>
@@ -248,7 +248,7 @@ exports[`Behavior SignIn render snapshot 1`] = `
               "width": "100%",
             }
           }
-          testID="buttonId"
+          testID="buttonSignIn_testID"
         >
           <Text
             style={

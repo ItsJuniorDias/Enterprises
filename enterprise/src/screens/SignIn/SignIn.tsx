@@ -34,8 +34,13 @@ interface SignInFormData {
 export const SignIn = () => {
   const [loading, setLoading] = useState(false);
 
-  const dispatch = useDispatch();
+  const testIDs = useRef({
+    input_email: 'inputEmail_testID',
+    input_password: 'inputPassword_testID',
+    button: 'buttonSignIn_testID',
+  }).current;
 
+  const dispatch = useDispatch();
   const navigation = useNavigation();
 
   const formRef = useRef<FormHandles>(null);
@@ -59,6 +64,7 @@ export const SignIn = () => {
       setLoading(true);
 
       await api.post('/users/auth/sign_in', data);
+
       dispatch(loginToAuthRequest(data));
 
       setLoading(false);
@@ -94,6 +100,7 @@ export const SignIn = () => {
           <Body>
             <Form ref={formRef} onSubmit={handleSignIn}>
               <Input
+                testID={testIDs.input_email}
                 autoCorrect={false}
                 autoCapitalize="none"
                 keyboardType="email-address"
@@ -107,6 +114,7 @@ export const SignIn = () => {
               />
 
               <Input
+                testID={testIDs.input_password}
                 ref={passwordInputRef}
                 secureTextEntry
                 name="password"
@@ -124,6 +132,7 @@ export const SignIn = () => {
               </Forgot>
 
               <Button
+                testID={testIDs.button}
                 onPress={() => {
                   formRef.current?.submitForm();
                 }}

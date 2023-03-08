@@ -1,6 +1,4 @@
 import styled from 'styled-components/native';
-import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder';
-import LinearGradient from 'react-native-linear-gradient';
 
 export const Container = styled.View`
   flex: 1;
@@ -118,5 +116,3 @@ export const EmptyFilterData = styled.Text`
   margin-top: 8px;
   margin-right: 8px;
 `;
-
-export const ViewShimmer = createShimmerPlaceholder(LinearGradient);
