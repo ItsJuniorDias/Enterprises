@@ -1,6 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
-
+import { fireEvent, render } from '@testing-library/react-native';
 import { InputSearch } from '../InputSearch/InputSearch';
 
 describe('Behavior InputSearch', () => {
@@ -18,5 +17,15 @@ describe('Behavior InputSearch', () => {
     const result = render(screenRender).toJSON();
 
     expect(result).toMatchSnapshot();
+  });
+
+  it('should press touchable', () => {
+    const { getByTestId } = render(screenRender);
+
+    const touchable = getByTestId('touchable_testID');
+
+    fireEvent.press(touchable);
+
+    expect(touchable).toBeTruthy();
   });
 });

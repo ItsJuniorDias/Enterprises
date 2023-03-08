@@ -120,6 +120,7 @@ exports[`Behavior Home render snapshot 1`] = `
         "width": "100%",
       }
     }
+    testID="touchable_testID"
   >
     <Image
       source={

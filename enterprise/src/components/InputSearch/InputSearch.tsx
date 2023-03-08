@@ -17,13 +17,21 @@ export const InputSearch = ({
 }: ISearch) => {
   const inputElementRef = useRef<any>(null);
 
+  const testIDs = useRef({
+    input_search: 'inputSearch_testId',
+    touchable: 'touchable_testID',
+  }).current;
+
   return (
-    <Touchable onPress={() => inputElementRef.current.focus()}>
+    <Touchable
+      testID={testIDs.touchable}
+      onPress={() => inputElementRef.current.focus()}
+    >
       <Image source={search} />
 
       <ContentInput>
         <Input
-          testID={testID}
+          testID={testIDs.input_search}
           placeholder={title}
           placeholderTextColor="#A4A4B2"
           ref={inputElementRef}
