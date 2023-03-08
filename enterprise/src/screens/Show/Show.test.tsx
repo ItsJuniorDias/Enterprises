@@ -5,13 +5,7 @@ import { Provider } from 'react-redux';
 import produce from 'immer';
 import { combineReducers, createStore } from 'redux';
 import { IShowState } from 'store/modules/show/types';
-import store from 'store';
 
-jest.mock('react-native-shimmer-placeholder', () => {
-  return {
-    createShimmerPlaceholder: jest.fn(),
-  };
-});
 jest.mock('react-native-linear-gradient', () => {});
 
 const mockNavigation = jest.fn();

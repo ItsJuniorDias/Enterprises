@@ -111,3 +111,11 @@ export const FloatDescription = styled.View`
   border-radius: 16px;
   margin-top: 32px;
 `;
+
+export const SkeletonPhoto = styled.View`
+  width: '100%';
+  height: 219px;
+  position: absolute;
+  border-top-left-radius: 28;
+  border-top-right-radius: 28;
+`;

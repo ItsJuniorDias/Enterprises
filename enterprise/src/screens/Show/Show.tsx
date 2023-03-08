@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Image, ScrollView, BackHandler, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { resetState } from '../../store/modules/show/actions';
 import arrow from '../../assets/arrow.png';
 import overflow from '../../assets/Overflow.png';
@@ -25,7 +24,7 @@ import {
   FloatView,
   FloatLocation,
   FloatDescription,
-  ViewShimmer,
+  SkeletonPhoto,
 } from './styles';
 
 export const Show = () => {
@@ -36,6 +35,7 @@ export const Show = () => {
 
   function handleBackButtonClick() {
     dispatch(resetState());
+
     navigation.navigate('/Home');
     return true;
   }
@@ -88,13 +88,7 @@ export const Show = () => {
                   {show.enterprise_name ? (
                     <Title>{show.enterprise_name}</Title>
                   ) : (
-                    <>
-                      <ViewShimmer
-                        style={{ borderRadius: 16, marginTop: 32, height: 32 }}
-                      >
-                        <FloatView />
-                      </ViewShimmer>
-                    </>
+                    <FloatView />
                   )}
                 </Header>
               </Container>
@@ -106,17 +100,8 @@ export const Show = () => {
                   }}
                 />
 
-                {!show.photo && (
-                  <View
-                    style={{
-                      width: '100%',
-                      height: 219,
-                      position: 'absolute',
-                      borderTopLeftRadius: 28,
-                      borderTopRightRadius: 28,
-                    }}
-                  />
-                )}
+                {!show.photo && <SkeletonPhoto />}
+
                 <ContenFilterImage />
               </Body>
 
@@ -126,25 +111,13 @@ export const Show = () => {
                     {show.city}, {show.country}
                   </TitleBody>
                 ) : (
-                  <>
-                    <View
-                      style={{ borderRadius: 16, marginTop: 32, height: 24 }}
-                    >
-                      <FloatLocation />
-                    </View>
-                  </>
+                  <FloatLocation />
                 )}
 
                 {show.description ? (
                   <Description>{show.description}</Description>
                 ) : (
-                  <>
-                    <View
-                      style={{ borderRadius: 16, marginTop: 32, height: 24 }}
-                    >
-                      <FloatDescription />
-                    </View>
-                  </>
+                  <FloatDescription />
                 )}
               </Content>
             </ScrollView>
