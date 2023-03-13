@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef } from 'react';
-import { Image, View, TouchableOpacity, TextInput, Alert } from 'react-native';
+import { View, TextInput, Alert, Image, TouchableOpacity } from 'react-native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
 import { useNavigation } from '@react-navigation/native';
@@ -10,6 +10,7 @@ import { getValidationErrors } from '../../utils/getValidationErrors';
 import api from '../../services/api';
 import Input from '../../components/Input/Input';
 import { Button, Loading } from '../../components';
+
 import iconGoogle from '../../assets/Google.png';
 import iconFacebook from '../../assets/Facebook.png';
 import forgotPassword from '../../assets/round-arrow_right_alt-24px.png';
@@ -19,9 +20,9 @@ import {
   Title,
   Header,
   Body,
+  TouchableText,
+  Text,
   Footer,
-  Forgot,
-  TextForgot,
   TextFooter,
   Row,
 } from './styles';
@@ -126,12 +127,13 @@ export const SignIn = () => {
                 }}
               />
 
-              <Forgot>
-                <TextForgot>Esqueceu sua senha ?</TextForgot>
+              <TouchableText isAlign={false} activeOpacity={0.6}>
+                <Text>Esqueceu sua senha ?</Text>
                 <Image source={forgotPassword} />
-              </Forgot>
+              </TouchableText>
 
               <Button
+                activeOpacity={0.6}
                 testID={testIDs.button}
                 onPress={() => {
                   formRef.current?.submitForm();
@@ -139,6 +141,12 @@ export const SignIn = () => {
               >
                 Entrar
               </Button>
+
+              <TouchableText isAlign activeOpacity={0.6}>
+                <Text>
+                  Não tem uma conta ? <Text isBold>Inscrever-se</Text>
+                </Text>
+              </TouchableText>
             </Form>
           </Body>
 
@@ -148,11 +156,11 @@ export const SignIn = () => {
             </View>
 
             <Row>
-              <TouchableOpacity>
+              <TouchableOpacity activeOpacity={0.6}>
                 <Image source={iconGoogle} />
               </TouchableOpacity>
 
-              <TouchableOpacity>
+              <TouchableOpacity activeOpacity={0.6}>
                 <Image source={iconFacebook} />
               </TouchableOpacity>
             </Row>

@@ -1,14 +1,23 @@
 import styled from 'styled-components/native';
+import { Colors, Fonts } from '../../theme';
+
+type TouchableTextProps = {
+  isAlign: boolean;
+};
+
+type TextProps = {
+  isBold?: boolean;
+};
 
 export const Container = styled.View`
   flex: 1;
-  padding: 0 14px;
+  padding: 16px 16px;
 `;
 
 export const Title = styled.Text`
   font-size: 28px;
-  color: #0d253c;
-  font-family: 'Poppins-SemiBold';
+  color: ${Colors.brand.secondary};
+  font-family: ${Fonts.semiBold};
 `;
 
 export const Header = styled.View`
@@ -19,18 +28,19 @@ export const Body = styled.View`
   margin-top: 73px;
 `;
 
-export const Forgot = styled.TouchableOpacity`
+export const TouchableText = styled.TouchableOpacity<TouchableTextProps>`
   width: 100%;
   flex-direction: row;
-  justify-content: flex-end;
-  margin-top: 8px;
+  justify-content: ${({ isAlign }) => (isAlign ? 'center' : 'flex-end')};
+  margin-top: ${({ isAlign }) => (isAlign ? '24px' : '8px')};
 `;
 
-export const TextForgot = styled.Text`
+export const Text = styled.Text<TextProps>`
   font-size: 14px;
   color: #2d4379;
   font-family: 'Poppins-Regular';
   margin-right: 8px;
+  font-weight: ${({ isBold }) => (isBold ? 700 : 400)};
 `;
 
 export const TextFooter = styled.Text`
@@ -39,12 +49,6 @@ export const TextFooter = styled.Text`
   font-family: 'Poppins-Regular';
   margin-top: -8px;
   margin-bottom: 8px;
-`;
-
-export const ContentFooter = styled.View`
-  background-color: red;
-  height: 80px;
-  justify-content: flex-start;
 `;
 
 export const Row = styled.View`
