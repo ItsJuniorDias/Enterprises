@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { Colors, Fonts } from '../../theme';
 
 type TouchableTextProps = {
   isAlign: boolean;
@@ -16,8 +15,8 @@ export const Container = styled.View`
 
 export const Title = styled.Text`
   font-size: 28px;
-  color: ${Colors.brand.secondary};
-  font-family: ${Fonts.semiBold};
+  color: ${({ theme }) => theme.colors.secondary};
+  font-family: ${({ theme }) => theme.fonts.semiBold};
 `;
 
 export const Header = styled.View`
@@ -37,16 +36,16 @@ export const TouchableText = styled.TouchableOpacity<TouchableTextProps>`
 
 export const Text = styled.Text<TextProps>`
   font-size: 14px;
-  color: #2d4379;
-  font-family: 'Poppins-Regular';
+  color: ${({ theme }) => theme.colors.light_secondary};
+  font-family: ${({ theme }) => theme.fonts.regular};
   margin-right: 8px;
   font-weight: ${({ isBold }) => (isBold ? 700 : 400)};
 `;
 
 export const TextFooter = styled.Text`
   font-size: 14px;
-  color: #2d4379;
-  font-family: 'Poppins-Regular';
+  color: ${({ theme }) => theme.colors.light_secondary};
+  font-family: ${({ theme }) => theme.fonts.regular};
   margin-top: -8px;
   margin-bottom: 8px;
 `;

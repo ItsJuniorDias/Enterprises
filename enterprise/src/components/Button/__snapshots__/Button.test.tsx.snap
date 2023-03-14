@@ -15,10 +15,10 @@ exports[`Behavior Button render snapshot 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#376aed",
-      "borderRadius": 10,
+      "borderRadius": 16,
       "height": 60,
       "justifyContent": "center",
-      "marginTop": 54,
+      "marginTop": 32,
       "opacity": 1,
       "width": "100%",
     }
@@ -29,7 +29,7 @@ exports[`Behavior Button render snapshot 1`] = `
     style={
       Array [
         Object {
-          "color": "#fff",
+          "color": "#FFFFFF",
           "fontFamily": "Poppins-Medium",
           "fontSize": 18,
         },

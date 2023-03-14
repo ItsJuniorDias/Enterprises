@@ -15,7 +15,7 @@ exports[`Behavior Input render snapshot 1`] = `
         "borderWidth": 2,
         "flexDirection": "row",
         "height": 60,
-        "marginBottom": 8,
+        "marginBottom": 16,
         "paddingBottom": 0,
         "paddingLeft": 16,
         "paddingRight": 16,

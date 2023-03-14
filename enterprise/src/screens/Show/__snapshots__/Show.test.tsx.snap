@@ -156,13 +156,15 @@ exports[`Behavior Show render snapshot 1`] = `
         />
         <View
           style={
-            Object {
-              "borderTopLeftRadius": 28,
-              "borderTopRightRadius": 28,
-              "height": 219,
-              "position": "absolute",
-              "width": "100%",
-            }
+            Array [
+              Object {
+                "borderTopLeftRadius": 28,
+                "borderTopRightRadius": 28,
+                "height": 219,
+                "position": "absolute",
+                "width": "'100%'",
+              },
+            ]
           }
         />
         <View
@@ -196,27 +198,17 @@ exports[`Behavior Show render snapshot 1`] = `
       >
         <View
           style={
-            Object {
-              "borderRadius": 16,
-              "height": 24,
-              "marginTop": 32,
-            }
+            Array [
+              Object {
+                "backgroundColor": "rgba(0, 0, 0, 0.2)",
+                "borderRadius": 16,
+                "height": 30,
+                "marginTop": 32,
+                "width": 80,
+              },
+            ]
           }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0, 0, 0, 0.2)",
-                  "borderRadius": 16,
-                  "height": 30,
-                  "marginTop": 32,
-                  "width": 80,
-                },
-              ]
-            }
-          />
-        </View>
+        />
         <Text
           style={
             Array [

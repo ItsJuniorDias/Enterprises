@@ -8,10 +8,10 @@ exports[`Behavior SignIn render snapshot 1`] = `
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
-        "paddingBottom": 0,
-        "paddingLeft": 14,
-        "paddingRight": 14,
-        "paddingTop": 0,
+        "paddingBottom": 16,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 16,
       },
     ]
   }
@@ -64,7 +64,7 @@ exports[`Behavior SignIn render snapshot 1`] = `
                 "borderWidth": 2,
                 "flexDirection": "row",
                 "height": 60,
-                "marginBottom": 8,
+                "marginBottom": 16,
                 "paddingBottom": 0,
                 "paddingLeft": 16,
                 "paddingRight": 16,
@@ -132,7 +132,7 @@ exports[`Behavior SignIn render snapshot 1`] = `
                 "borderWidth": 2,
                 "flexDirection": "row",
                 "height": 60,
-                "marginBottom": 8,
+                "marginBottom": 16,
                 "paddingBottom": 0,
                 "paddingLeft": 16,
                 "paddingRight": 16,
@@ -211,6 +211,7 @@ exports[`Behavior SignIn render snapshot 1`] = `
                   "color": "#2d4379",
                   "fontFamily": "Poppins-Regular",
                   "fontSize": 14,
+                  "fontWeight": "400",
                   "marginRight": 8,
                 },
               ]
@@ -240,10 +241,10 @@ exports[`Behavior SignIn render snapshot 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#376aed",
-              "borderRadius": 10,
+              "borderRadius": 16,
               "height": 60,
               "justifyContent": "center",
-              "marginTop": 54,
+              "marginTop": 32,
               "opacity": 1,
               "width": "100%",
             }
@@ -254,7 +255,7 @@ exports[`Behavior SignIn render snapshot 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#fff",
+                  "color": "#FFFFFF",
                   "fontFamily": "Poppins-Medium",
                   "fontSize": 18,
                 },
@@ -262,6 +263,58 @@ exports[`Behavior SignIn render snapshot 1`] = `
             }
           >
             Entrar
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginTop": 24,
+              "opacity": 1,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#2d4379",
+                  "fontFamily": "Poppins-Regular",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                  "marginRight": 8,
+                },
+              ]
+            }
+          >
+            Não tem uma conta ? 
+            <Text
+              isBold={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#2d4379",
+                    "fontFamily": "Poppins-Regular",
+                    "fontSize": 14,
+                    "fontWeight": "700",
+                    "marginRight": 8,
+                  },
+                ]
+              }
+            >
+              Inscrever-se
+            </Text>
           </Text>
         </View>
       </View>
