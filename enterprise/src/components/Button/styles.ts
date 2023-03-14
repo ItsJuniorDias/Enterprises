@@ -1,12 +1,10 @@
 import styled from 'styled-components/native';
 import { TouchableOpacity } from 'react-native';
 
-import { Colors, Fonts } from '../../theme';
-
 export const Container = styled(TouchableOpacity)`
   width: 100%;
   height: 60px;
-  background-color: ${Colors.brand.primary};
+  background-color: ${({ theme }) => theme.colors.primary};
   border-radius: 16px;
   justify-content: center;
   align-items: center;
@@ -14,7 +12,7 @@ export const Container = styled(TouchableOpacity)`
 `;
 
 export const ButtonText = styled.Text`
-  font-family: ${Fonts.medium};
-  color: ${Colors.neutral[100]};
+  font-family: ${({ theme }) => theme.fonts.medium};
+  color: ${({ theme }) => theme.colors.white};
   font-size: 18px;
 `;

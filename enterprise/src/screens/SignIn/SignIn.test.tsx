@@ -2,6 +2,9 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 import { SignIn } from '../SignIn/SignIn';
 import { AxiosResponse } from 'axios';
+import { ThemeProvider } from 'styled-components/native';
+import { theme } from 'theme';
+import 'jest-styled-components';
 
 const mockResponse = {
   data: {},
@@ -23,7 +26,12 @@ jest.mock('react-redux', () => ({
 }));
 
 describe('Behavior SignIn', () => {
-  const screenRender = () => <SignIn />;
+  const screenRender = () => (
+    <ThemeProvider theme={theme}>
+      <SignIn />
+    </ThemeProvider>
+  );
+
   it('render snapshot', () => {
     const result = render(screenRender()).toJSON();
 
