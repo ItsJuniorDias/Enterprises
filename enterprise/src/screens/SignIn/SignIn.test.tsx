@@ -24,6 +24,9 @@ jest.mock('react-native-vector-icons/Feather', () => 'Icon');
 jest.mock('react-redux', () => ({
   useDispatch: jest.fn(),
 }));
+jest.mock('react-native-responsive-fontsize', () => ({
+  RFValue: (value: number, _?: number) => value,
+}));
 
 describe('Behavior SignIn', () => {
   const screenRender = () => (

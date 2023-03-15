@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Behavior SignIn render snapshot 1`] = `
-<View
+<RCTScrollView
   style={
     Array [
       Object {
@@ -44,7 +44,7 @@ exports[`Behavior SignIn render snapshot 1`] = `
       style={
         Array [
           Object {
-            "marginTop": 73,
+            "marginTop": 64,
           },
         ]
       }
@@ -325,29 +325,27 @@ exports[`Behavior SignIn render snapshot 1`] = `
           Object {
             "alignItems": "center",
             "justifyContent": "center",
-            "marginTop": 135,
+            "marginTop": 112,
             "width": "100%",
           },
         ]
       }
     >
-      <View>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#2d4379",
-                "fontFamily": "Poppins-Regular",
-                "fontSize": 14,
-                "marginBottom": 8,
-                "marginTop": -8,
-              },
-            ]
-          }
-        >
-          Ou faça login com sua conta
-        </Text>
-      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#2d4379",
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 14,
+              "marginBottom": 8,
+              "marginTop": -8,
+            },
+          ]
+        }
+      >
+        Ou faça login com sua conta
+      </Text>
       <View
         style={
           Array [
@@ -408,5 +406,5 @@ exports[`Behavior SignIn render snapshot 1`] = `
       </View>
     </View>
   </View>
-</View>
+</RCTScrollView>
 `;
