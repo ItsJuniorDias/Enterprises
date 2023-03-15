@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef } from 'react';
-import { View, TextInput, Alert, Image, TouchableOpacity } from 'react-native';
+import { TextInput, Alert, Image, TouchableOpacity } from 'react-native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
 import { useNavigation } from '@react-navigation/native';
@@ -93,7 +93,7 @@ export const SignIn = () => {
       {loading && <Loading />}
 
       {!loading && (
-        <View>
+        <>
           <Header>
             <Title>Login</Title>
           </Header>
@@ -151,9 +151,7 @@ export const SignIn = () => {
           </Body>
 
           <Footer>
-            <View>
-              <TextFooter>Ou faça login com sua conta</TextFooter>
-            </View>
+            <TextFooter>Ou faça login com sua conta</TextFooter>
 
             <Row>
               <TouchableOpacity activeOpacity={0.6}>
@@ -165,7 +163,7 @@ export const SignIn = () => {
               </TouchableOpacity>
             </Row>
           </Footer>
-        </View>
+        </>
       )}
     </Container>
   );

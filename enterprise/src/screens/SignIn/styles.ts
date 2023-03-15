@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 type TouchableTextProps = {
   isAlign: boolean;
@@ -8,23 +9,23 @@ type TextProps = {
   isBold?: boolean;
 };
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   flex: 1;
-  padding: 16px 16px;
+  padding: ${`${RFValue(16)}px ${RFValue(16)}px`};
 `;
 
 export const Title = styled.Text`
-  font-size: 28px;
+  font-size: ${RFValue(28)}px;
   color: ${({ theme }) => theme.colors.secondary};
   font-family: ${({ theme }) => theme.fonts.semiBold};
 `;
 
 export const Header = styled.View`
-  margin-top: 32px;
+  margin-top: ${RFValue(32)}px;
 `;
 
 export const Body = styled.View`
-  margin-top: 73px;
+  margin-top: ${RFValue(64)}px;
 `;
 
 export const TouchableText = styled.TouchableOpacity<TouchableTextProps>`
@@ -35,7 +36,7 @@ export const TouchableText = styled.TouchableOpacity<TouchableTextProps>`
 `;
 
 export const Text = styled.Text<TextProps>`
-  font-size: 14px;
+  font-size: ${RFValue(14)}px;
   color: ${({ theme }) => theme.colors.light_secondary};
   font-family: ${({ theme }) => theme.fonts.regular};
   margin-right: 8px;
@@ -43,7 +44,7 @@ export const Text = styled.Text<TextProps>`
 `;
 
 export const TextFooter = styled.Text`
-  font-size: 14px;
+  font-size: ${RFValue(14)}px;
   color: ${({ theme }) => theme.colors.light_secondary};
   font-family: ${({ theme }) => theme.fonts.regular};
   margin-top: -8px;
@@ -55,7 +56,7 @@ export const Row = styled.View`
 `;
 
 export const Footer = styled.View`
-  margin-top: 135px;
+  margin-top: ${RFValue(112)}px;
   width: 100%;
   align-items: center;
   justify-content: center;
