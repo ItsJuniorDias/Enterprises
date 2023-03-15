@@ -8,9 +8,6 @@ import * as Yup from 'yup';
 import { loginToAuthRequest } from '../../store/modules/auth/actions';
 import { getValidationErrors } from '../../utils/getValidationErrors';
 import api from '../../services/api';
-
-import auth from '@react-native-firebase/auth';
-
 import Input from '../../components/Input/Input';
 import { Button, Loading } from '../../components';
 
@@ -67,18 +64,9 @@ export const SignIn = () => {
 
       setLoading(true);
 
-      auth()
-        .signInWithEmailAndPassword(data.email, data.password)
-        .then((response) => {
-          console.log(response, 'RESPONSE');
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      await api.post('/users/auth/sign_in', data);
 
-      // await api.post('/users/auth/sign_in', data);
-
-      // dispatch(loginToAuthRequest(data));
+      dispatch(loginToAuthRequest(data));
 
       setLoading(false);
 
