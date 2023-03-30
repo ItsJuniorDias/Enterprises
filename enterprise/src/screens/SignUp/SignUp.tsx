@@ -6,19 +6,18 @@ import Icon from 'react-native-vector-icons/Feather';
 import { theme } from 'theme';
 import { Button } from '../../components';
 import Input from '../../components/Input/Input';
+import { useAuth } from '../../hooks';
 
 import { Container, Title, Body, TouchableText, Text } from './styles';
 
 export const SignUp = () => {
-  const formRef = useRef(null);
-  const emailInputRef = useRef(null);
-  const passwordInputRef = useRef(null);
+  const { createUser } = useAuth();
 
   const navigation = useNavigation();
 
-  const handleSignUp = (data) => {
-    console.log(data, 'DATA');
-  };
+  const formRef = useRef(null);
+  const emailInputRef = useRef(null);
+  const passwordInputRef = useRef(null);
 
   return (
     <Container>
@@ -36,7 +35,7 @@ export const SignUp = () => {
       <Title>Sign Up</Title>
 
       <Body>
-        <Form ref={formRef} onSubmit={handleSignUp}>
+        <Form ref={formRef} onSubmit={createUser}>
           <Input
             name="name"
             icon="user"

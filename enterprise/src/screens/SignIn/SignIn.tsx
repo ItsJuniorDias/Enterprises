@@ -11,6 +11,8 @@ import api from '../../services/api';
 import Input from '../../components/Input/Input';
 import { Button, Loading } from '../../components';
 
+import { useAuth } from '../../hooks';
+
 import iconGoogle from '../../assets/Google.png';
 import iconFacebook from '../../assets/Facebook.png';
 import forgotPassword from '../../assets/round-arrow_right_alt-24px.png';
@@ -33,16 +35,18 @@ interface SignInFormData {
 }
 
 export const SignIn = () => {
-  const [loading, setLoading] = useState(false);
-
   const testIDs = useRef({
     input_email: 'inputEmail_testID',
     input_password: 'inputPassword_testID',
     button: 'buttonSignIn_testID',
   }).current;
 
+  const [loading, setLoading] = useState(false);
+
   const dispatch = useDispatch();
   const navigation = useNavigation();
+
+  const { login } = useAuth();
 
   const formRef = useRef<FormHandles>(null);
   const passwordInputRef = useRef<TextInput>(null);
@@ -64,9 +68,9 @@ export const SignIn = () => {
 
       setLoading(true);
 
-      await api.post('/users/auth/sign_in', data);
+      await login(data);
 
-      dispatch(loginToAuthRequest(data));
+      // dispatch(loginToAuthRequest(data));
 
       setLoading(false);
 
@@ -89,86 +93,88 @@ export const SignIn = () => {
   }, []);
 
   return (
-    <Container>
+    <>
       {loading && <Loading />}
 
       {!loading && (
         <>
-          <Header>
-            <Title>Login</Title>
-          </Header>
+          <Container>
+            <Header>
+              <Title>Login</Title>
+            </Header>
 
-          <Body>
-            <Form ref={formRef} onSubmit={handleSignIn}>
-              <Input
-                testID={testIDs.input_email}
-                autoCorrect={false}
-                autoCapitalize="none"
-                keyboardType="email-address"
-                name="email"
-                icon="mail"
-                placeholder="E-mail"
-                returnKeyType="next"
-                onSubmitEditing={() => {
-                  passwordInputRef.current?.focus();
-                }}
-              />
+            <Body>
+              <Form ref={formRef} onSubmit={handleSignIn}>
+                <Input
+                  testID={testIDs.input_email}
+                  autoCorrect={false}
+                  autoCapitalize="none"
+                  keyboardType="email-address"
+                  name="email"
+                  icon="mail"
+                  placeholder="E-mail"
+                  returnKeyType="next"
+                  onSubmitEditing={() => {
+                    passwordInputRef.current?.focus();
+                  }}
+                />
 
-              <Input
-                testID={testIDs.input_password}
-                ref={passwordInputRef}
-                secureTextEntry
-                name="password"
-                icon="lock"
-                placeholder="Senha"
-                returnKeyType="send"
-                onSubmitEditing={() => {
-                  formRef.current?.submitForm();
-                }}
-              />
+                <Input
+                  testID={testIDs.input_password}
+                  ref={passwordInputRef}
+                  secureTextEntry
+                  name="password"
+                  icon="lock"
+                  placeholder="Senha"
+                  returnKeyType="send"
+                  onSubmitEditing={() => {
+                    formRef.current?.submitForm();
+                  }}
+                />
 
-              <TouchableText isAlign={false} activeOpacity={0.6}>
-                <Text>Esqueceu sua senha ?</Text>
-                <Image source={forgotPassword} />
-              </TouchableText>
+                <TouchableText isAlign={false} activeOpacity={0.6}>
+                  <Text>Esqueceu sua senha ?</Text>
+                  <Image source={forgotPassword} />
+                </TouchableText>
 
-              <Button
-                activeOpacity={0.6}
-                testID={testIDs.button}
-                onPress={() => {
-                  formRef.current?.submitForm();
-                }}
-              >
-                Entrar
-              </Button>
+                <Button
+                  activeOpacity={0.6}
+                  testID={testIDs.button}
+                  onPress={() => {
+                    formRef.current?.submitForm();
+                  }}
+                >
+                  Entrar
+                </Button>
 
-              <TouchableText
-                onPress={() => navigation.navigate('/SignUp')}
-                isAlign
-                activeOpacity={0.6}
-              >
-                <Text>
-                  Não tem uma conta ? <Text isBold>Inscrever-se</Text>
-                </Text>
-              </TouchableText>
-            </Form>
-          </Body>
+                <TouchableText
+                  onPress={() => navigation.navigate('/SignUp')}
+                  isAlign
+                  activeOpacity={0.6}
+                >
+                  <Text>
+                    Não tem uma conta ? <Text isBold>Inscrever-se</Text>
+                  </Text>
+                </TouchableText>
+              </Form>
+            </Body>
 
-          <Footer>
-            <TextFooter>Ou faça login com sua conta</TextFooter>
+            <Footer>
+              <TextFooter>Ou faça login com sua conta</TextFooter>
 
-            <Row>
-              <TouchableOpacity activeOpacity={0.6}>
-                <Image source={iconGoogle} />
-              </TouchableOpacity>
+              <Row>
+                <TouchableOpacity activeOpacity={0.6}>
+                  <Image source={iconGoogle} />
+                </TouchableOpacity>
 
-              <TouchableOpacity activeOpacity={0.6}>
-                <Image source={iconFacebook} />
-              </TouchableOpacity>
-            </Row>
-          </Footer>
+                <TouchableOpacity activeOpacity={0.6}>
+                  <Image source={iconFacebook} />
+                </TouchableOpacity>
+              </Row>
+            </Footer>
+          </Container>
         </>
       )}
-    </Container>
+    </>
   );
 };

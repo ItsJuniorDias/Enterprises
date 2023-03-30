@@ -10,6 +10,8 @@ import { IEnterprise } from '../../store/modules/enterprise/types';
 import { requestShow } from '../../store/modules/show/actions';
 import { InputSearch } from '../../components';
 
+import { useAuth } from 'hooks';
+
 import {
   Container,
   Description,
@@ -38,12 +40,15 @@ export const Home = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
+  const { logout } = useAuth();
+
   useEffect(() => {
     setDataEnterprise(Object.values(enterprise));
   }, [enterprise]);
 
   const handeExit = () => {
-    dispatch(logoutUser());
+    logout();
+
     navigation.navigate('/SignIn');
   };
 
