@@ -10,7 +10,7 @@ import store from './store';
 import Routes from './routes';
 import { ThemeProvider } from 'styled-components';
 
-const App: React.FC = () => (
+const App = () => (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
       <NavigationContainer>

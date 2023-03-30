@@ -1,11 +1,10 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-
-import { Home, Show, SignIn } from '../screens';
+import { Home, Show, SignIn, SignUp } from '../screens';
 
 const Auth = createStackNavigator();
 
-const AuthRoutes: React.FC = () => (
+const AuthRoutes = () => (
   <Auth.Navigator
     screenOptions={{
       headerShown: false,
@@ -15,6 +14,7 @@ const AuthRoutes: React.FC = () => (
     }}
   >
     <Auth.Screen name="/SignIn" component={SignIn} />
+    <Auth.Screen name="/SignUp" component={SignUp} />
     <Auth.Screen name="/Home" component={Home} />
     <Auth.Screen name="/Show" component={Show} />
   </Auth.Navigator>

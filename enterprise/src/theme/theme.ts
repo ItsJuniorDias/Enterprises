@@ -4,8 +4,8 @@ export const theme = {
     secondary: '#0d253c',
     light_secondary: '#2d4379',
     error: 'red',
-    white: '#FFFFFF',
-    black: '#000000',
+    shape: '#FFFFFF',
+    text: '#000000',
   },
   fonts: {
     regular: 'Poppins-Regular',

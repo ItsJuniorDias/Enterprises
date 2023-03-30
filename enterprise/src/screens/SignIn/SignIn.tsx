@@ -142,7 +142,11 @@ export const SignIn = () => {
                 Entrar
               </Button>
 
-              <TouchableText isAlign activeOpacity={0.6}>
+              <TouchableText
+                onPress={() => navigation.navigate('/SignUp')}
+                isAlign
+                activeOpacity={0.6}
+              >
                 <Text>
                   Não tem uma conta ? <Text isBold>Inscrever-se</Text>
                 </Text>
