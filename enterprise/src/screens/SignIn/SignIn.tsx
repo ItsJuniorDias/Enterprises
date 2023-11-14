@@ -50,6 +50,7 @@ export const SignIn = () => {
 
   const formRef = useRef<FormHandles>(null);
   const passwordInputRef = useRef<TextInput>(null);
+  console.log('YOLO');
 
   const handleSignIn = useCallback(async (data: SignInFormData) => {
     try {
